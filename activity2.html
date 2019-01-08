@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>calculator</title>
+  </head>
+  <body>
+  	<input type="number" placeholder="0" align="right">
+  	<br>
+  	<br>
+  	<button onclick="attachnumber(this)">1</button>
+    <button onclick="attachnumber(this)">2</button>
+    <button onclick="attachnumber(this)">3</button>
+    <button onclick="attachnumber(this)">4</button>
+    <br>
+    <button onclick="attachnumber(this)">5</button>
+    <button onclick="attachnumber(this)">6</button>
+    <button onclick="attachnumber(this)">7</button>
+    <button onclick="attachnumber(this)">8</button>
+    <br>
+    <button onclick="attachnumber(this)">9</button>
+    <button onclick="attachnumber(this)">0</button>
+    <button id="nplus" onclick="doadd()">+</button>
+    <button id="nminus" onclick="dosubtrack()">-</button>
+    <button id="nequals" onclick="result()">=</button>
+
+    <script type="text/javascript">
+    	let n = document.getElementById('ndisplay');
+    	let numberHolder;
+    	let optr;
+
+    	function attachnumber(e){
+    		n.value += e.innerHTML;
+    	}
+
+    	function doadd(){
+    		optr = "+";
+    		numberHolder = parseInt(n.value);
+    		n.value = "";
+    	}
+
+
+    	function dosubtract(){
+    		optr = "-";
+    		numberHolder = parseInt(n.value);
+    		n.value = "";	
+    	}
+
+    	function result() {
+    		switch (optr){
+    			case "+":
+    			        n.value = numberHolder + parseInt(n.value);
+    			        break;
+    			case "-":
+    			        n.value = numberHolder - parseInt(n.value);
+    			        break;
+    			default:
+    			        console.log("there is no operator defined");
+    			        break;        
+    		}
+    		
+    	}
+    </script>
+  </body>
+</html>
